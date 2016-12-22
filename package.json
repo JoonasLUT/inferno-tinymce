@@ -1,0 +1,23 @@
+{
+  "name": "inferno-tinymce",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Joonas Salminen",
+    "email": "joonas.salminen@visma.com"
+  },
+  "devDependencies": {
+    "babel-plugin-inferno": "1.3.0-beta17",
+    "inferno-scripts": "0.9.0"
+  },
+  "dependencies": {
+    "inferno": "1.0.0-beta37",
+    "inferno-component": "1.0.0-beta37"
+  },
+  "scripts": {
+    "start": "inferno-scripts start",
+    "build": "inferno-scripts build",
+    "test": "inferno-scripts test --env=jsdom",
+    "eject": "inferno-scripts eject"
+  }
+}
