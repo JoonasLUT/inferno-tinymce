@@ -27,7 +27,7 @@ const HANDLER_NAMES = EVENTS.map((event) => {
     return 'on' + ucFirst(event);
 });
 
-export class TinyMCE extends Component {
+export default class TinyMCE extends Component {
 
     constructor(props) {
         super(props);

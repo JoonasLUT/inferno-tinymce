@@ -1,6 +1,6 @@
 import Inferno from 'inferno';
 import Component from 'inferno-component';
-import {TinyMCE} from './lib/components/TinyMCE';
+import TinyMCE from './lib/components/TinyMCE';
 import Logo from './logo';
 import './App.css';
 

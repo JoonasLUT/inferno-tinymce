@@ -5,13 +5,35 @@ Inferno TinyMCE component
 ## Installing
 
 ```bash
-$ npm install inferno-tinymce
+$ npm install --save inferno-tinymce
 ```
 
 ## Example
 
 ```js
-/* Add code here */
+import Inferno from 'inferno';
+import Component from 'inferno-component';
+import TinyMCE from 'inferno-tinymce';
+
+class App extends Component {
+  handleEditorChange = (e) => {
+    console.log('Content was updated:', e.target.getContent());
+  }
+
+  render() {
+    return (
+      <TinyMCE
+        config={{
+          plugins: 'autolink link image lists print preview',
+          toolbar: 'undo redo | bold italic | alignleft aligncenter alignright'
+        }}
+        onChange={this.handleEditorChange}
+      />
+    );
+  }
+}
+
+Inferno.render(<App/>, document.getElementById('root'));
 ```
 
 ## Dependency
@@ -19,7 +41,7 @@ $ npm install inferno-tinymce
 This component depends on `tinymce` being globally accessible.
 
 ```html
-<script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 ```
 
 ## License
