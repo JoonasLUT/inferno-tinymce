@@ -20,10 +20,10 @@ class App extends Component {
                 <p className="App-intro">
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
-                <div>
+                <div className="editor">
                     <TinyMCE
-                        content="<p>This is the initial content of the editor</p>"
                         config={{
+                            height: 300,
                             plugins: 'link image code',
                             toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
                         }}

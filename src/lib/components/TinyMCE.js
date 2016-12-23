@@ -52,7 +52,7 @@ export class TinyMCE extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (this.props.config !== nextProps.config) {
-            this._init(nextProps.config, nextProps.content);
+            this._init(nextProps.config);
         }
         if (this.props.id !== nextProps.id) {
             this.id = nextProps.id;
@@ -61,8 +61,7 @@ export class TinyMCE extends Component {
 
     shouldComponentUpdate(nextProps) {
         return (
-            (this.props.content !== nextProps.content) ||
-            (this.props.config !== nextProps.config)
+            this.props.config !== nextProps.config
         );
     }
 
@@ -76,26 +75,23 @@ export class TinyMCE extends Component {
                 ref={this._refTextArea}
                 id={this.id}
                 className={this.props.className}
-                dangerouslySetInnerHTML={{__html: this.props.content}}
             />
         ) : (
             <textarea
                 ref={this._refTextArea}
                 id={this.id}
                 className={this.props.className}
-                defaultValue={this.props.content}
             />
         );
     }
 
-    _init(config, content) {
+    _init(config) {
         if (this._isInit) {
             this._remove();
         }
 
         // hide the textarea that is me so that no one sees it
-        // TODO: Fix this - ref is called after componentDidMount, why?
-        // this._textArea.style.hidden = 'hidden';
+        this._textArea.style.hidden = 'hidden';
 
         const setupCallback = config.setup;
         const hasSetupCallback = (typeof setupCallback === 'function');
@@ -110,13 +106,6 @@ export class TinyMCE extends Component {
                     handler(e, editor);
                 });
             });
-            // need to set content here because the textarea will still have the
-            // old `this.props.content`
-            if (content) {
-                editor.on('init', () => {
-                    editor.setContent(content);
-                });
-            }
             if (hasSetupCallback) {
                 setupCallback(editor);
             }
@@ -124,8 +113,7 @@ export class TinyMCE extends Component {
 
         tinymce.init(config);
 
-        // TODO: Fix this
-        // this._textArea.style.hidden = '';
+        this._textArea.style.hidden = '';
 
         this._isInit = true;
     }
