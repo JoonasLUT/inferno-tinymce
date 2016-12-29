@@ -44,6 +44,14 @@ This component depends on `tinymce` being globally accessible.
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 ```
 
+OR
+
+Download TinyMCE Community: https://www.tinymce.com/download/
+
+## Configuration
+
+TinyMCE Docs: https://www.tinymce.com/docs/
+
 ## License
 
 MIT
